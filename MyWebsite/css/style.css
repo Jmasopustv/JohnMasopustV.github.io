@@ -1268,7 +1268,6 @@ textarea.form-input::-webkit-resizer { display: none; }
   .has-scrollbar::-webkit-scrollbar-button { width: 100px; }
 
 
-
   /**
    * SIDEBAR
    */
@@ -1277,7 +1276,6 @@ textarea.form-input::-webkit-resizer { display: none; }
     grid-template-columns: 1fr 1fr;
     gap: 30px 15px;
   }
-
 
 
   /**
