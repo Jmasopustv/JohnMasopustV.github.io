@@ -3,88 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Database Project</title>
+  <title>Orizon Project</title>
   <link rel="stylesheet" href="MyWebsite/css/style.css">
   <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <style>
+    /* Inline styles moved to CSS for clarity */
+    .sidebar {
+      height: auto;
+      margin: 0 auto;
+      max-width: 800px;
+      color: var(--light-gray);
+      background: none;
+      border-radius: 14px;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .sidebar header {
+      text-align: center;
+      background: var(--eerie-black-1);
+      color: var(--light-gray);
+      padding: 15px;
+      border-radius: 14px;
+      margin-bottom: 15px;
+    }
+
+    .back-button {
+      margin-top: 25px;
+      display: inline-block;
+      padding: 10px 20px;
+      text-decoration: none;
+      color: var(--eerie-black-1);
+      background-color: var(--orange-yellow-crayola);
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-button:hover {
+      background-color: var(--light-gray-70);
+    }
+
+    .project-img img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .article-title {
+      color: var(--white-2);
+      padding-bottom: 10px;
+    }
+
+    .project-details-description {
+      color: var(--light-gray);
+      font-size: var(--fs-5);
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    .features-title {
+      margin-top: 20px;
+      color: var(--orange-yellow-crayola);
+    }
+
+    .content-card {
+      background: var(--eerie-black-1);
+      color: var(--light-gray);
+      padding: 15px;
+      border-radius: 14px;
+      list-style: none;
+    }
+
+    .content-card li {
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
 <body>
-
   <!-- Main Content -->
   <main>
-    <div class="sidebar" style="
-      margin: 0 auto; 
-      max-width: 800px; 
-      color: var(--light-gray); 
-      background: none; 
-      border-radius: 14px; 
-      padding: 20px;
-    ">
+    <div class="sidebar">
       <!-- Header Section -->
-      <header style="text-align: center;
-        background: var(--eerie-black-1); 
-        color: var(--light-gray); 
-        padding: 15px; 
-        border-radius: 14px; 
-        list-style: none;
-        margin-bottom: 15px;
-      ">
-        <h1 class="h2" style="color: var(--orange-yellow-crayola);">Finance Project</h1>
-        <a href="index.html#projects" style="margin-top: 25px; margin-bottom: 20;" class="back-button">Back to Projects Page</a>
+      <header>
+        <h1 class="h2" style="color: var(--orange-yellow-crayola);">Orizon Project</h1>
+        <a href="index.html#projects" class="back-button">Back to Projects Page</a>
       </header>
-      
+
       <!-- Project Image -->
-      <figure class="project-img" style="
-        height: auto; 
-        max-width: 100%; 
-        margin: 0 auto 20px;
-      ">
-        <img src="./MyWebsite/images/project-2.png" alt="Finance Project" style="
-          width: 100%; 
-          height: auto; 
-          border-radius: 12px;
-        ">
+      <figure class="project-img">
+        <img src="./MyWebsite/images/project-2.png" alt="Orizon Project">
       </figure>
 
       <!-- Project Title -->
-      <h2 class="article-title" style="
-        color: var(--white-2); 
-        padding-bottom: 10px; 
-        border-bottom: 3px solid var(--text-gradient-yellow);
-      ">
-        Overview
-      </h2>
+      <h2 class="article-title">Overview</h2>
 
       <!-- Project Description -->
-      <p class="project-details-description" style="
-        color: var(--light-gray); 
-        font-size: var(--fs-5); 
-        text-align: justify; 
-        line-height: 1.6;
-      ">
-        This project involves creating and managing a database to store and retrieve structured data efficiently. It features robust querying capabilities, user authentication, and automated backup systems to ensure data security and reliability.
+      <p class="project-details-description">
+        This project focuses on creating a financial database for managing budgets, tracking expenses, and generating financial reports. It features a user-friendly dashboard and custom filtering options.
       </p>
 
       <!-- Additional Information -->
-      <h3 class="h3" style="
-        margin-top: 20px; 
-        color: var(--orange-yellow-crayola);
-      ">
-        Features
-      </h3>
-      <ul class="content-card" style="
-        background: var(--eerie-black-1); 
-        color: var(--light-gray); 
-        padding: 15px; 
-        border-radius: 14px; 
-        list-style: none;
-      ">
-        <li style="margin-bottom: 10px;">Efficient data storage and retrieval</li>
-        <li style="margin-bottom: 10px;">User authentication and role management</li>
-        <li>Automated backup and recovery</li>
+      <h3 class="features-title">Features</h3>
+      <ul class="content-card">
+        <li>Real-time financial tracking</li>
+        <li>Custom filtering options</li>
+        <li>User-friendly interface</li>
       </ul>
     </div>
   </main>
-
 </body>
 </html>
