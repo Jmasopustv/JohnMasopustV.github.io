@@ -1200,20 +1200,32 @@ textarea.form-input::-webkit-resizer { display: none; }
    .resume-download-button {
     display: inline-block;
     margin-top: 10px;
-    padding: 10px 15px;
+    padding: 12px 20px; /* Slightly larger padding for better tap targets on mobile */
     margin-bottom: 25px;
     background-color: var(--orange-yellow-crayola);
     color: var(--smoky-black);
     text-decoration: none;
-    font-size: var(--fs-5);
-    font-weight: var(--fw-600);
+    font-size: 16px; /* Increase font size for readability */
+    font-weight: bold;
     border-radius: 5px;
     transition: background-color 0.3s ease;
+    text-align: center; /* Ensure text is centered */
+    cursor: pointer;
   }
   
   .resume-download-button:hover {
     background-color: var(--light-gray-70);
     color: var(--smoky-black);
+  }
+  
+  /* Add mobile-specific styles */
+  @media (max-width: 768px) {
+    .resume-download-button {
+      width: 100%; /* Make the button span the full width */
+      text-align: center; /* Center align the text */
+      padding: 14px 0; /* Adjust padding for larger tap area */
+      font-size: 18px; /* Slightly larger font for mobile */
+    }
   }
   
   .timeline-list { margin-left: 65px; }
@@ -1231,7 +1243,7 @@ textarea.form-input::-webkit-resizer { display: none; }
 
 
   /**
-   * #PORTFOLIO, BLOG
+   * #PROJECTS, BLOG
    */
 
   .project-img, .blog-banner-box { border-radius: 16px; }
