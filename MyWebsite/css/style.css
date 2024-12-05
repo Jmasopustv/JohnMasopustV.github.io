@@ -2,19 +2,6 @@
   #style.css
 \*-----------------------------------*/
 
-
-/**
- * copyright 2022 @codewithsadee
- */
-
-
-
-
-
-/*-----------------------------------*\
-  #CUSTOM PROPERTY
-\*-----------------------------------*/
-
 :root {
 
   /**
@@ -665,9 +652,8 @@ main {
 
 
 
-
 /*-----------------------------------*\
-  #PORTFOLIO
+  #Projects
 \*-----------------------------------*/
 
 .filter-list { display: none; }
@@ -819,6 +805,21 @@ main {
   color: var(--light-gray-70);
   font-size: var(--fs-6);
   font-weight: var(--fw-300);
+}
+
+.back-button {
+  display: inline-block;
+  margin: 10px 0;
+  padding: 10px 15px;
+  background-color: var(--orange-yellow-crayola);
+  color: var(--eerie-black-1);
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: var(--light-gray-70);
 }
 
 
@@ -1196,6 +1197,25 @@ textarea.form-input::-webkit-resizer { display: none; }
    * #RESUME
    */
 
+   .resume-download-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    margin-bottom: 25px;
+    background-color: var(--orange-yellow-crayola);
+    color: var(--smoky-black);
+    text-decoration: none;
+    font-size: var(--fs-5);
+    font-weight: var(--fw-600);
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .resume-download-button:hover {
+    background-color: var(--light-gray-70);
+    color: var(--smoky-black);
+  }
+  
   .timeline-list { margin-left: 65px; }
 
   .timeline-item:not(:last-child)::before { left: -40px; }

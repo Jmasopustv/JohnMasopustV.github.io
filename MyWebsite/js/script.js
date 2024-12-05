@@ -98,12 +98,13 @@ for (let i = 0; i < formInputs.length; i++) {
 const navigationLinks = document.querySelectorAll("[data-nav-link]");
 const pages = document.querySelectorAll("[data-page]");
 
-// add event to all nav link
+// Add event to all navigation links
 for (let i = 0; i < navigationLinks.length; i++) {
   navigationLinks[i].addEventListener("click", function () {
+    const pageName = this.innerHTML.toLowerCase();
 
     for (let i = 0; i < pages.length; i++) {
-      if (this.innerHTML.toLowerCase() === pages[i].dataset.page) {
+      if (pageName === pages[i].dataset.page) {
         pages[i].classList.add("active");
         navigationLinks[i].classList.add("active");
         window.scrollTo(0, 0);
@@ -112,6 +113,23 @@ for (let i = 0; i < navigationLinks.length; i++) {
         navigationLinks[i].classList.remove("active");
       }
     }
-
   });
 }
+
+// Handle navigation from URL hash on page load
+document.addEventListener("DOMContentLoaded", () => {
+  const fragment = window.location.hash.slice(1); // Remove '#' from the hash
+
+  if (fragment) {
+    for (let i = 0; i < pages.length; i++) {
+      if (pages[i].dataset.page === fragment) {
+        pages[i].classList.add("active");
+        navigationLinks[i].classList.add("active");
+      } else {
+        pages[i].classList.remove("active");
+        navigationLinks[i].classList.remove("active");
+      }
+    }
+  }
+});
+
