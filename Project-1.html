@@ -8,32 +8,26 @@
   <script type="module" src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://cdn.jsdelivr.net/npm/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
   <style>
+    /* General Sidebar Layout */
     .sidebar {
-      height: auto;
       margin: 0 auto;
       max-width: 800px;
-      color: var(--light-gray);
-      background: var(--eerie-black-1);
-      border-radius: 14px;
       padding: 20px;
-      box-sizing: border-box;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
+      border-radius: 14px;
+      background: var(--eerie-black-1);
+      color: var(--eerie-black-1);
     }
 
     .sidebar header {
       text-align: center;
-      background: var(--eerie-black-1);
-      color: var(--light-gray);
+      background: var(--onyx);
       padding: 15px;
       border-radius: 14px;
-      margin-bottom: 15px;
-      box-shadow: var(--shadow-2);
+      margin-bottom: 20px;
     }
 
     .back-button {
-      margin-top: 25px;
+      margin-top: 15px;
       display: inline-block;
       padding: 10px 20px;
       text-decoration: none;
@@ -44,20 +38,20 @@
     }
 
     .back-button:hover {
-      background-color: var(--light-gray-70);
+      background-color: var(--white-2);
     }
 
+    /* Carousel Styling */
     .carousel {
       position: relative;
       overflow: hidden;
       border-radius: 12px;
       width: 100%;
-      height: 300px; /* Adjusted height for mobile */
+      height: auto; /* Adjusted height for responsiveness */
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 20px;
-      background: var(--eerie-black-1);
     }
 
     .carousel-images {
@@ -93,22 +87,13 @@
       right: 10px;
     }
 
-    .carousel-button:hover {
-      background-color: var(--light-gray-70);
-    }
-
     .article-title {
       color: var(--white-2);
       padding-bottom: 10px;
-      padding-top: 10px;
-      background: var(--eerie-black-1);
-      border-radius: 10px;
-      margin-bottom: 10px;
-      text-align: center;
     }
 
     .project-details-description {
-      color: var(--light-gray);
+      color: var(--white-2);
       font-size: var(--fs-5);
       text-align: justify;
       line-height: 1.6;
@@ -118,38 +103,36 @@
       margin-top: 20px;
       margin-bottom: 15px;
       color: var(--orange-yellow-crayola);
-      padding: 10px;
-      background: var(--eerie-black-1);
-      border-radius: 10px;
-      text-align: center;
     }
 
     .content-card {
-      background: var(--eerie-black-1);
-      color: var(--light-gray);
+      background: var(--orange-yellow-crayola);
+      color: var(--white-2);
       padding: 15px;
       border-radius: 14px;
       list-style: none;
-      box-shadow: var(--shadow-1);
     }
 
     .content-card li {
       margin-bottom: 10px;
     }
 
-    /* Responsive Design */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
+      .sidebar {
+        padding: 15px;
+      }
+
       .carousel {
-        height: 250px; /* Reduced height for smaller screens */
+        height: auto; /* Adjust height dynamically */
+      }
+
+      .carousel img {
+        height: auto; /* Ensure images are not cropped */
       }
 
       .content-card {
         padding: 10px;
-      }
-
-      .back-button {
-        padding: 8px 12px;
-        font-size: var(--fs-6);
       }
     }
   </style>
@@ -160,7 +143,7 @@
     <div class="sidebar">
       <!-- Header Section -->
       <header>
-        <h1 class="h2" style="color: var(--orange-yellow-crayola);">Finance Project</h1>
+        <h1 class="h2" style="color: var(--white-2);">Finance Project</h1>
         <a href="index.html#projects" class="back-button">Back to Projects Page</a>
       </header>
 
