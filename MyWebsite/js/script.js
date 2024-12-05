@@ -122,69 +122,75 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   console.log("Navigation initialized!");
+
+  /**
+   * Contact Form Submission Logic
+   */
+  const form = document.querySelector("#data-form");
+  const successMessage = document.querySelector(".success-message");
+
+  if (form && successMessage) {
+    // Ensure success message is hidden by default
+    successMessage.style.display = "none";
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault(); // Prevent default form submission
+      console.log("Submitting form..."); // Debugging form submission
+
+      // Prevent duplicate submissions
+      const submitButton = form.querySelector("button[type='submit']");
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.innerHTML = `<ion-icon name="paper-plane"></ion-icon> <span>Sending...</span>`;
+      }
+
+      // Collect form data
+      const formData = new FormData(form);
+
+      try {
+        // Send data to Apps Script
+        const response = await fetch("https://script.google.com/macros/s/AKfycbzgkw7r6-_y3wkr1jyT4AhDBfEVXzJmCttNBFey1fBsP6TAA5P53-D7sEfK-04_YhTu/exec", {
+          method: "POST",
+          body: new URLSearchParams(formData), // Send as URL-encoded data
+        });
+
+        const result = await response.json();
+
+        if (result.status === "success") {
+          console.log("Form submitted successfully!"); // Debugging success
+
+          const successMessage = document.querySelector(".success-message");
+
+        if (successMessage) {
+          console.log("Success message element found:", successMessage);
+        } else {
+           console.error("Success message element NOT found. Check your HTML!");
+        }
+
+          // Show success message
+          successMessage.classList.add("show");
+          successMessage.textContent =
+            "Your contact form was submitted! I will reach out to you based on the email you provided.";
+
+          form.reset(); // Clear the form
+        } else {
+          console.error("Form submission failed:", result.message);
+          alert("Failed to send the form. Please try again.");
+        }
+      } catch (error) {
+        console.error("Error submitting form:", error);
+        alert("An error occurred. Please try again.");
+      } finally {
+        // Re-enable the submit button
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.innerHTML = `<ion-icon name="paper-plane"></ion-icon> <span>Send Message</span>`;
+        }
+      }
+    });
+  } else {
+    console.log("Contact form or success message not found.");
+  }
 });
 
-/**
- * EmailJS Logic
- */
-(function () {
-  const form = document.querySelector("[data-form]");
-  const formInputs = document.querySelectorAll("[data-form-input]");
-  const formBtn = document.querySelector("[data-form-btn]");
 
-  // Safely check if the form exists
-  if (form) {
-    // Debugging: Log form initialization
-    console.log("Form found. Initializing EmailJS...");
-
-    // Initialize EmailJS with your User ID
-    emailjs.init("4vTTUUnGvsKbVMIRX"); // Replace with your EmailJS public key
-
-    // Enable/Disable submit button based on form validation
-    formInputs.forEach((input) => {
-      input.addEventListener("input", () => {
-        console.log("Checking form validity..."); // Debug validation state
-
-        if (form.checkValidity()) {
-          console.log("Form is valid! Enabling submit button.");
-          formBtn.removeAttribute("disabled");
-        } else {
-          console.log("Form is invalid. Disabling submit button.");
-          formBtn.setAttribute("disabled", "");
-        }
-      });
-    });
-
-    // Handle form submission
-    form.addEventListener("submit", (event) => {
-      event.preventDefault(); // Prevent default form submission
-
-      console.log("Form submitted! Sending email..."); // Debugging submission
-
-      // Update button state to show "Sending..."
-      formBtn.setAttribute("disabled", "");
-      formBtn.innerHTML = `<ion-icon name="paper-plane"></ion-icon> <span>Sending...</span>`;
-
-      emailjs
-        .sendForm("service_2o9al6l", "template_ilj67fg", form)
-        .then(
-          () => {
-            console.log("Email sent successfully!"); // Debug success
-            form.reset();
-            formBtn.innerHTML = `<ion-icon name="paper-plane"></ion-icon> <span>Send Message</span>`;
-            alert("Your message has been sent successfully!");
-          },
-          (error) => {
-            console.error("EmailJS Error:", error); // Debug failure
-            formBtn.innerHTML = `<ion-icon name="paper-plane"></ion-icon> <span>Send Message</span>`;
-            formBtn.removeAttribute("disabled");
-            alert("Oops! Something went wrong. Please try again.");
-          }
-        );
-    });
-
-    console.log("EmailJS initialized!");
-  } else {
-    console.log("No form found. Skipping EmailJS initialization.");
-  }
-})();
