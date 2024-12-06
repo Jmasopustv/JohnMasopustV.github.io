@@ -77,7 +77,32 @@ document.addEventListener("DOMContentLoaded", () => {
    */
   const navigationLinks = document.querySelectorAll("[data-nav-link]");
   const pages = document.querySelectorAll("[data-page]");
+  const contactButton = document.querySelector(".navigate-contact-btn");
 
+  if (contactButton) {
+    contactButton.addEventListener("click", (event) => {
+      event.preventDefault(); // Prevent default link behavior
+
+      // Navigate to the contact page
+      const contactSection = document.querySelector("[data-page='contact']");
+      const allSections = document.querySelectorAll("[data-page]");
+
+      // Remove 'active' class from all sections and add it to the contact page
+      allSections.forEach((section) => section.classList.remove("active"));
+      contactSection.classList.add("active");
+
+      // Update the active state in the navigation bar
+      const navLinks = document.querySelectorAll("[data-nav-link]");
+      navLinks.forEach((link) => link.classList.remove("active"));
+      const contactNavLink = Array.from(navLinks).find((link) =>
+        link.textContent.trim().toLowerCase() === "contact"
+      );
+      if (contactNavLink) contactNavLink.classList.add("active");
+
+      // Scroll to the top of the contact page
+      window.scrollTo(0, 0);
+    });
+  }  
   // Add event listener to all navigation links
   navigationLinks.forEach((link) => {
     link.addEventListener("click", function () {
